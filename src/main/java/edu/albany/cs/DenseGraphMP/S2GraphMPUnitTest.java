@@ -1671,6 +1671,6 @@ public class S2GraphMPUnitTest {
 //    	experiments_VaryingNumOfClusters(numTrueFeats, 8);
 		// experiments_VaryingNumOfClusters_stat(numTrueFeats);
 		// expeiments_VaryingSigma();
-		expeiments_VaryingSigma_stat();
+		// expeiments_VaryingSigma_stat();
     }
 }
