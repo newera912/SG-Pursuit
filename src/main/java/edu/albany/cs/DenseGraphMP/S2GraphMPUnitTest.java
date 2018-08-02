@@ -1119,15 +1119,19 @@ public class S2GraphMPUnitTest {
         ExecutorService pool = Executors.newFixedThreadPool(thresholds);
         String inRoot = "/data/sg-pursuit-data/data/DenseGraph/DenseSubgraph_APDM/VaryingNumOfAttributes/";
         String outRoot = "/data/sg-pursuit-data/outputs/CoherentDenseSGDetection/"; // CoherentDenseSGDetection
-        for(int clusterSize:new int[]{15, 20, 25, 50, 100}){
-            for(double p_out:new double[]{0.10, 0.15}){
+        for(int clusterSize:new int[]{30}){
+            for(double p_out:new double[]{0.1}){
                 for(int numTrueFeat:numTrueFeats){
             		for(int numFea:new int[]{20, 40, 80, 100, 500}){//, 40, 80, 100, 500
             			for(int instance=0;instance<30;instance++){
             				String fileName= "VaryingNumOfAttributes_APDM_Dense_subgraph_in_"+p_in+"_out_"+p_out+"_numClusters_"+numClusters+"_TrueSGSize_"+clusterSize+"_FeasNum_"+numFea+"_trueFeasNum_"+numTrueFeat+"_sigmas1_" + sigmas1 + "_case_"+instance+".txt";
             				String outFile= fileName;
-            				File f = new File(outRoot+fileName);
-            				if(f.exists() == false) continue;
+            				System.out.println(fileName);
+            				File f = new File(inRoot+fileName);
+            				if(f.exists() == false) {
+            					System.out.println("test");
+            					continue;
+            				}
             				pool.execute(new Thread() {
                                 public void run() {
                                 	TestingS2GraphMPDense(inRoot + fileName,outRoot + outFile,clusterSize,numTrueFeat,lambda);    
@@ -1663,7 +1667,7 @@ public class S2GraphMPUnitTest {
 
     public static void main(String[] args){
 //    	validateAPDMFiles();
-    	int[] numTrueFeats = new int[]{5, 6, 8, 10};
+    	int[] numTrueFeats = new int[]{5, 10};
     	experiments_VaryingNumOfAttributes(numTrueFeats, 1);
 //    	experiments_VaryingNumOfAttributes_stat(numTrueFeats);
 //    	experiments_VaryingClusterSizes(numTrueFeats, 8);
