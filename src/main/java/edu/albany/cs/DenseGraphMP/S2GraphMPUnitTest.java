@@ -1117,8 +1117,8 @@ public class S2GraphMPUnitTest {
 		double sigmas1 = 0.0316D;
 //		int numTrueFeat = 5;
         ExecutorService pool = Executors.newFixedThreadPool(thresholds);
-        String inRoot = "data/DenseGraph/DenseSubgraph_APDM/";
-        String outRoot = "outputs/CoherentDenseSGDetection/";
+        String inRoot = "/data/sg-pursuit-data/data/DenseGraph/DenseSubgraph_APDM/VaryingNumOfAttributes/";
+        String outRoot = "/data/sg-pursuit-data/outputs/CoherentDenseSGDetection/";
         for(int clusterSize:new int[]{15, 20, 25, 50, 100}){
             for(double p_out:new double[]{0.10, 0.15}){
                 for(int numTrueFeat:numTrueFeats){
@@ -1664,7 +1664,7 @@ public class S2GraphMPUnitTest {
     public static void main(String[] args){
 //    	validateAPDMFiles();
     	int[] numTrueFeats = new int[]{5, 6, 8, 10};
-//    	experiments_VaryingNumOfAttributes(numTrueFeats, 8);
+    	experiments_VaryingNumOfAttributes(numTrueFeats, 1);
 //    	experiments_VaryingNumOfAttributes_stat(numTrueFeats);
 //    	experiments_VaryingClusterSizes(numTrueFeats, 8);
 //    	experiments_VaryingClusterSizes_stat(numTrueFeats);
