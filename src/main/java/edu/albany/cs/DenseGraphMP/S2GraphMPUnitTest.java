@@ -1020,7 +1020,7 @@ public class S2GraphMPUnitTest {
 		FileWriter fstream;
 		System.out.println(line);		
 		try {
-			fstream = new FileWriter("data/DenseGraph/Log/log.txt", true);
+			fstream = new FileWriter("/data/sg-pursuit-data/DenseGraph/Log/log.txt", true);
 			fstream.write(line + "\r\n");
 			fstream.close();
 		} catch (IOException e) {
@@ -1118,7 +1118,7 @@ public class S2GraphMPUnitTest {
 //		int numTrueFeat = 5;
         ExecutorService pool = Executors.newFixedThreadPool(thresholds);
         String inRoot = "/data/sg-pursuit-data/data/DenseGraph/DenseSubgraph_APDM/VaryingNumOfAttributes/";
-        String outRoot = "/data/sg-pursuit-data/outputs/CoherentDenseSGDetection/";
+        String outRoot = "/data/sg-pursuit-data/outputs/CoherentDenseSGDetection/"; // CoherentDenseSGDetection
         for(int clusterSize:new int[]{15, 20, 25, 50, 100}){
             for(double p_out:new double[]{0.10, 0.15}){
                 for(int numTrueFeat:numTrueFeats){
